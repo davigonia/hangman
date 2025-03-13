@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Baby -->
+  <circle cx="100" cy="100" r="25" fill="#ffeaa7" />
+  
+  <!-- Face -->
+  <circle cx="90" cy="95" r="3" fill="black" />
+  <circle cx="110" cy="95" r="3" fill="black" />
+  <path d="M95,110 Q100,115 105,110" stroke="black" stroke-width="2" fill="none" />
+  
+  <!-- Baby body -->
+  <ellipse cx="100" cy="140" rx="15" ry="20" fill="#ffeaa7" />
+  
+  <!-- Baby arms -->
+  <line x1="85" y1="130" x2="70" y2="125" stroke="#ffeaa7" stroke-width="10" stroke-linecap="round" />
+  <line x1="115" y1="130" x2="130" y2="125" stroke="#ffeaa7" stroke-width="10" stroke-linecap="round" />
+  
+  <!-- Baby legs -->
+  <line x1="95" y1="160" x2="90" y2="175" stroke="#ffeaa7" stroke-width="10" stroke-linecap="round" />
+  <line x1="105" y1="160" x2="110" y2="175" stroke="#ffeaa7" stroke-width="10" stroke-linecap="round" />
+  
+  <!-- Baby hat -->
+  <path d="M75,85 Q100,65 125,85" fill="#ff9ff3" />
+</svg>

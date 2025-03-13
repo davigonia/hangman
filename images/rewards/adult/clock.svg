@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Clock -->
+  <circle cx="50" cy="50" r="25" fill="none" stroke="#777777" stroke-width="2"/>
+  <!-- Clock Hands -->
+  <path d="M50,50 L50,35" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <path d="M50,50 L60,55" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <!-- Clock Markers -->
+  <path d="M50,25 L50,30 M75,50 L70,50 M50,75 L50,70 M25,50 L30,50" fill="none" stroke="#777777" stroke-width="1"/>
+  <path d="M64,36 L61,39 M64,64 L61,61 M36,64 L39,61 M36,36 L39,39" fill="none" stroke="#777777" stroke-width="1"/>
+</svg>

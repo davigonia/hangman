@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Fountain Pen -->
+  <path d="M30,70 L60,40 L70,30 L60,20 L50,30 L20,60 L30,70 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <!-- Pen Nib -->
+  <path d="M20,60 L30,70 L25,75 L15,65 Z" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <!-- Pen Details -->
+  <path d="M35,65 L65,35" fill="none" stroke="#777777" stroke-width="1"/>
+  <path d="M40,60 L70,30" fill="none" stroke="#777777" stroke-width="1"/>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Briefcase -->
+  <path d="M30,40 L70,40 L70,70 L30,70 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <path d="M40,40 L40,30 L60,30 L60,40" fill="none" stroke="#777777" stroke-width="2"/>
+  <path d="M30,50 L70,50" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <!-- Handle -->
+  <path d="M45,45 L55,45" fill="none" stroke="#777777" stroke-width="2"/>
+</svg>

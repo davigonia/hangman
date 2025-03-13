@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Monocle -->
+  <circle cx="45" cy="50" r="15" fill="none" stroke="#777777" stroke-width="2"/>
+  <!-- Chain -->
+  <path d="M60,50 C65,45 70,45 75,50" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <!-- Monocle Rim -->
+  <path d="M45,35 L45,37 M45,63 L45,65" fill="none" stroke="#777777" stroke-width="1"/>
+</svg>

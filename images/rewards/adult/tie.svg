@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Tie -->
+  <path d="M45,30 L55,30 L52,40 L50,70 L48,40 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <!-- Tie Knot -->
+  <path d="M47,35 L53,35" fill="none" stroke="#777777" stroke-width="1.5"/>
+  <!-- Tie Pattern -->
+  <path d="M49,45 L51,45 M49,50 L51,50 M49,55 L51,55 M49,60 L51,60" fill="none" stroke="#777777" stroke-width="1"/>
+</svg>
