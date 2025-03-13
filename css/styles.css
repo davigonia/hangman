@@ -1,0 +1,688 @@
+/* General Styles */
+:root {
+    /* Kids Theme Variables */
+    --kids-primary: #ff6b6b;
+    --kids-secondary: #4ecdc4;
+    --kids-accent: #ffe66d;
+    --kids-background: #f7fff7;
+    --kids-text: #1a535c;
+    
+    /* Adults Theme Variables */
+    --adults-primary: #2d3436;
+    --adults-secondary: #636e72;
+    --adults-accent: #b2bec3;
+    --adults-background: #dfe6e9;
+    --adults-text: #2d3436;
+    
+    /* Current Theme (default: kids) */
+    --primary: var(--kids-primary);
+    --secondary: var(--kids-secondary);
+    --accent: var(--kids-accent);
+    --background: var(--kids-background);
+    --text: var(--kids-text);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.toggle-container.hidden {
+    display: none;
+}
+
+.toggle-label {
+    margin: 0 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.kids-label {
+    color: var(--kids-primary);
+}
+
+.adults-label {
+    color: var(--adults-primary);
+}
+
+.toggle-label.active {
+    text-decoration: underline;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--kids-primary);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--adults-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Game Container Styles */
+.game-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Difficulty Selector Styles */
+.difficulty-selector {
+    text-align: center;
+}
+
+.difficulty-selector h2 {
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 2.2rem;
+}
+
+.difficulty-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--secondary);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Game Area Styles */
+.game-area {
+    text-align: center;
+}
+
+.game-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.hangman-container {
+    margin-bottom: 20px;
+}
+
+.hangman-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.3s ease;
+}
+
+.word-hint-container {
+    margin-bottom: 20px;
+}
+
+.word-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.letter-box {
+    width: 50px;
+    height: 50px;
+    border-bottom: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hint-container {
+    font-style: italic;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.guesses-container {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.guesses-container p {
+    margin-bottom: 10px;
+}
+
+/* Keyboard Styles */
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.key {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.3rem;
+}
+
+.key:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.key.used {
+    background-color: var(--secondary);
+    color: white;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Game Controls Styles */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game-controls button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.game-controls button:hover {
+    background-color: var(--secondary);
+}
+
+/* Result Modal Styles */
+.result-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-content h2 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.reward-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.reward {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#play-again-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#play-again-btn:hover {
+    background-color: var(--secondary);
+}
+
+/* Multiplayer Section Styles */
+.multiplayer-section {
+    text-align: center !important;
+    margin: 20px 0 40px 0 !important;
+    padding: 20px !important;
+    background-color: white !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+#multiplayer-btn {
+    padding: 15px 30px !important;
+    font-size: 1.2rem !important;
+    border: none !important;
+    border-radius: 30px !important;
+    background-color: var(--primary) !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    margin-bottom: 20px !important;
+}
+
+#multiplayer-btn:hover {
+    background-color: var(--secondary) !important;
+    transform: translateY(-2px) !important;
+}
+
+.multiplayer-options {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+    max-width: 500px !important;
+    margin: 0 auto !important;
+}
+
+.multiplayer-options input {
+    width: 100% !important;
+    padding: 12px 15px !important;
+    border: 2px solid var(--accent) !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    transition: border-color 0.3s ease !important;
+}
+
+.multiplayer-options input:focus {
+    outline: none !important;
+    border-color: var(--primary) !important;
+}
+
+#start-custom-game {
+    padding: 12px 25px !important;
+    font-size: 1.1rem !important;
+    border: none !important;
+    border-radius: 25px !important;
+    background-color: var(--secondary) !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    scroll-margin-top: 0 !important;
+}
+
+#start-custom-game:hover {
+    background-color: var(--primary) !important;
+    transform: translateY(-2px) !important;
+}
+
+#start-custom-game:active {
+    transform: translateY(0) !important;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+/* Kids Theme Specific Styles */
+.kids-theme {
+    --primary: var(--kids-primary);
+    --secondary: var(--kids-secondary);
+    --accent: var(--kids-accent);
+    --background: var(--kids-background);
+    --text: var(--kids-text);
+    font-family: 'Bubblegum Sans', cursive;
+}
+
+.kids-theme .game-container {
+    border: 5px dashed var(--kids-secondary);
+}
+
+/* Adults Theme Specific Styles */
+.adults-theme {
+    --primary: var(--adults-primary);
+    --secondary: var(--adults-secondary);
+    --accent: var(--adults-accent);
+    --background: var(--adults-background);
+    --text: var(--adults-text);
+    font-family: 'Poppins', sans-serif;
+}
+
+.adults-theme .game-container {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .game-status {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    
+    .hangman-container {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .letter-box {
+        width: 30px;
+        height: 30px;
+        font-size: 1.2rem;
+    }
+    
+    .key {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .hangman-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.badges-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, 100px) !important;
+    gap: 20px !important;
+    justify-content: center !important;
+    padding: 20px !important;
+}
+
+.badge-cell {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 100px !important;
+    height: 110px !important;
+}
+
+.badge-item {
+    width: 80px !important;
+    height: 80px !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    margin: 0 !important;
+}
+
+.badge-name {
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 0.8rem !important;
+    color: var(--text) !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Specific styling for adult badges */
+#adults-badges-section .badge-name {
+    color: #ddd !important;
+}
+
+/* Badge Collection Styles */
+.badges-collection {
+    background-color: white !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    margin: 30px 0 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.badges-collection h2 {
+    color: var(--primary) !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    margin-bottom: 30px !important;
+}
+
+.badges-section {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 10px !important;
+    padding: 20px !important;
+    margin-bottom: 30px !important;
+}
+
+.badges-section h3 {
+    color: var(--secondary) !important;
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 20px !important;
+}
+
+.badges-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 20px !important;
+    justify-items: center !important;
+    padding: 10px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+.badge-wrapper {
+    width: 100px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+.badge-circle {
+    width: 75px !important;
+    height: 75px !important;
+    border-radius: 50% !important;
+    background-color: white !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    margin-bottom: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.badge-circle img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    padding: 4px !important;
+}
+
+.badge-title {
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    color: var(--text) !important;
+    line-height: 1.2 !important;
+    margin-top: 5px !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+}
+
+.no-badges-message {
+    text-align: center !important;
+    color: var(--secondary) !important;
+    font-style: italic !important;
+    padding: 20px !important;
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+    margin: 10px !important;
+    grid-column: 1 / -1 !important;
+}
+
+/* Adult badges specific styling */
+#adults-badges-section {
+    background-color: var(--adults-background) !important;
+}
+
+#adults-badges-section .badge-title {
+    color: var(--adults-text) !important;
+}
+
+#adults-badges-section .badge-circle {
+    background-color: #333 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .badges-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .badge-wrapper {
+        width: 70px !important;
+    }
+
+    .badge-circle {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .badge-title {
+        font-size: 0.7rem !important;
+    }
+}
+
+html {
+    scroll-behavior: auto !important;
+}

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Hangman Game - Kids & Adults</title>
+    <link rel="stylesheet" href="css/styles.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Override styles to make text and buttons bigger */
+        body {
+            font-size: 18px !important;
+        }
+        h1 {
+            font-size: 3.2rem !important;
+        }
+        .toggle-label {
+            font-size: 1.2rem !important;
+        }
+        .switch {
+            width: 70px !important;
+            height: 40px !important;
+        }
+        .slider:before {
+            height: 32px !important;
+            width: 32px !important;
+        }
+        input:checked + .slider:before {
+            transform: translateX(30px) !important;
+        }
+        .difficulty-selector h2 {
+            font-size: 2.2rem !important;
+        }
+        .difficulty-buttons {
+            gap: 20px !important;
+        }
+        .difficulty-btn {
+            padding: 15px 30px !important;
+            font-size: 1.3rem !important;
+        }
+        
+        /* Make hangman images bigger */
+        .hangman-image {
+            width: 280px !important;
+            height: 280px !important;
+            margin: 0 auto !important;
+        }
+        
+        /* Improve alignment for mobile */
+        .game-status {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+        }
+        
+        .word-hint-container {
+            width: 100% !important;
+            text-align: center !important;
+            margin-top: 20px !important;
+        }
+        
+        .word-container {
+            display: flex !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+            margin: 0 auto !important;
+            max-width: 90% !important;
+        }
+        
+        .guesses-container {
+            text-align: center !important;
+            margin: 20px auto !important;
+            width: 100% !important;
+        }
+        
+        .letter-box {
+            width: 50px !important;
+            height: 50px !important;
+            font-size: 1.8rem !important;
+        }
+        .hint-container {
+            font-size: 1.2rem !important;
+            text-align: center !important;
+            margin: 15px auto !important;
+        }
+        .guesses-container {
+            font-size: 1.2rem !important;
+        }
+        .keyboard {
+            gap: 8px !important;
+            margin: 0 auto !important;
+            max-width: 90% !important;
+        }
+        .key {
+            width: 45px !important;
+            height: 45px !important;
+            font-size: 1.3rem !important;
+        }
+        .game-controls button {
+            padding: 15px 25px !important;
+            font-size: 1.2rem !important;
+        }
+        .result-modal h2 {
+            font-size: 2.2rem !important;
+        }
+        .result-modal p {
+            font-size: 1.3rem !important;
+        }
+        #play-again-btn {
+            padding: 15px 30px !important;
+            font-size: 1.2rem !important;
+        }
+        #multiplayer-btn {
+            padding: 15px 30px !important;
+            font-size: 1.2rem !important;
+        }
+        .multiplayer-options input {
+            padding: 15px !important;
+            font-size: 1.1rem !important;
+        }
+        #start-custom-game {
+            padding: 15px 30px !important;
+            font-size: 1.2rem !important;
+        }
+        footer {
+            font-size: 1.1rem !important;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .game-area {
+                padding: 10px !important;
+            }
+            
+            .hangman-image {
+                width: 250px !important;
+                height: 250px !important;
+            }
+            
+            .letter-box {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            
+            .key {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+        
+        /* Badges Collection Styles */
+        .badges-collection {
+            background-color: white !important;
+            border-radius: 15px !important;
+            padding: 20px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+            margin: 30px 0 !important;
+            text-align: center !important;
+        }
+        
+        .badges-collection h2 {
+            color: var(--primary) !important;
+            margin-bottom: 20px !important;
+            font-size: 2rem !important;
+        }
+        
+        .badges-section {
+            margin-bottom: 20px !important;
+        }
+        
+        .badges-section h3 {
+            font-size: 1.8rem !important;
+            margin-bottom: 10px !important;
+        }
+        
+        .badges-container {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            padding: 10px !important;
+        }
+        
+        .badge-item {
+            width: 80px !important;
+            height: 80px !important;
+            margin: 10px !important;
+            background-size: contain !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            border-radius: 50% !important;
+            background-color: white !important;
+            position: relative !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .badge-name {
+            position: absolute !important;
+            bottom: -20px !important;
+            left: 0 !important;
+            right: 0 !important;
+            text-align: center !important;
+            font-size: 0.8rem !important;
+            color: var(--text) !important;
+        }
+        
+        .no-badges-message {
+            color: var(--secondary) !important;
+            font-style: italic !important;
+            padding: 20px !important;
+        }
+        
+        /* Ensure badges collection is always visible */
+        .badges-collection {
+            display: block !important;
+        }
+        
+        /* Show/hide badge sections based on game mode */
+        .kids-theme #adults-badges-section {
+            display: none !important;
+        }
+        
+        .adults-theme #kids-badges-section {
+            display: none !important;
+        }
+        
+        .badges-section {
+            background-color: var(--card-bg) !important;
+            border-radius: 10px !important;
+            padding: 15px !important;
+        }
+        
+        .adults-theme .badges-section {
+            background-color: var(--dark-card-bg) !important;
+        }
+        
+        /* Adult badge specific styling */
+        #adults-badges-section .badge-item {
+            background-color: #333 !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        #adults-badges-section .badge-item img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            z-index: 1 !important;
+        }
+        
+        #adults-badges-section .badge-name {
+            color: #ddd !important;
+            position: relative !important;
+            z-index: 2 !important;
+            background-color: rgba(51, 51, 51, 0.7) !important;
+            width: 100% !important;
+            padding: 2px 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="game-title">Hangman Game</h1>
+            <div class="toggle-container">
+                <span class="toggle-label kids-label active">Kids</span>
+                <label class="switch">
+                    <input type="checkbox" id="version-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label adults-label">Adults</span>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="difficulty-selector" id="difficulty-selector">
+                <h2>Select Difficulty</h2>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                    <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                    <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                </div>
+            </div>
+
+            <div class="game-area" id="game-area" style="display: none;">
+                <div class="game-status">
+                    <div class="hangman-container">
+                        <div id="hangman-image" class="hangman-image"></div>
+                    </div>
+                    <div class="word-hint-container">
+                        <div class="word-container" id="word-container"></div>
+                        <div class="hint-container">
+                            <p>Hint: <span id="hint-text"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guesses-container">
+                    <p>Guesses Left: <span id="guesses-left">10</span></p>
+                    <p>Wrong Letters: <span id="wrong-letters"></span></p>
+                </div>
+
+                <div class="keyboard" id="keyboard"></div>
+
+                <div class="game-controls">
+                    <button id="new-game-btn">New Game</button>
+                </div>
+            </div>
+
+            <div class="result-modal" id="result-modal">
+                <div class="modal-content">
+                    <h2 id="result-title"></h2>
+                    <p id="result-message"></p>
+                    <div id="reward-container" class="reward-container"></div>
+                    <button id="play-again-btn">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges Collection Area -->
+        <div class="badges-collection" id="badges-collection">
+            <h2>My Badge Collection</h2>
+            
+            <!-- Kids Badges Section -->
+            <div class="badges-section" id="kids-badges-section">
+                <div class="badges-container" id="kids-badges-container">
+                    <p class="no-badges-message">Win kids mode games to collect badges!</p>
+                </div>
+            </div>
+            
+            <!-- Adults Badges Section -->
+            <div class="badges-section" id="adults-badges-section">
+                <div class="badges-container" id="adults-badges-container">
+                    <p class="no-badges-message">Win adults mode games to collect badges!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multiplayer Section -->
+        <div class="multiplayer-section">
+            <button id="multiplayer-btn">Play with Friends</button>
+            <div id="multiplayer-options" class="multiplayer-options" style="display: none;">
+                <input type="text" id="custom-word" placeholder="Enter a word for your friend to guess">
+                <input type="text" id="custom-hint" placeholder="Enter a hint (optional)">
+                <button id="start-custom-game" onclick="window.scrollTo(0, 0)">Start Game</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Hangman Game | Created with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="js/words.js?v=1"></script>
+    <script src="js/game.js?v=1"></script>
+</body>
+</html>

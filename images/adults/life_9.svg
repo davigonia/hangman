@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Hospital bed -->
+  <rect x="60" y="140" width="80" height="20" fill="white" stroke="#636e72" stroke-width="2" />
+  <line x1="60" y1="160" x2="60" y2="180" stroke="#636e72" stroke-width="2" />
+  <line x1="140" y1="160" x2="140" y2="180" stroke="#636e72" stroke-width="2" />
+  <line x1="60" y1="140" x2="60" y2="120" stroke="#636e72" stroke-width="2" />
+  <line x1="140" y1="140" x2="140" y2="120" stroke="#636e72" stroke-width="2" />
+  <rect x="60" y="120" width="80" height="5" fill="#636e72" />
+  
+  <!-- Dying person -->
+  <ellipse cx="100" cy="140" rx="30" ry="10" fill="#dfe6e9" />
+  <circle cx="100" cy="115" r="15" fill="#dfe6e9" />
+  
+  <!-- Face with closed eyes -->
+  <line x1="90" y1="115" x2="95" y2="115" stroke="black" stroke-width="1" />
+  <line x1="105" y1="115" x2="110" y2="115" stroke="black" stroke-width="1" />
+  <path d="M95,120 Q100,118 105,120" stroke="black" stroke-width="1" fill="none" />
+  
+  <!-- IV drip -->
+  <line x1="60" y1="120" x2="60" y2="80" stroke="#636e72" stroke-width="2" />
+  <line x1="60" y1="80" x2="80" y2="80" stroke="#636e72" stroke-width="2" />
+  <line x1="80" y1="80" x2="80" y2="115" stroke="#636e72" stroke-width="1" />
+  <rect x="55" y="85" width="10" height="15" fill="#74b9ff" />
+  
+  <!-- Heart monitor -->
+  <rect x="140" y="100" width="20" height="15" fill="black" />
+  <path d="M145,108 L150,103 L155,108 L160,103" stroke="#2ecc71" stroke-width="1" fill="none" />
+  
+  <!-- Blanket -->
+  <path d="M70,140 Q100,130 130,140 L130,150 Q100,140 70,150 Z" fill="#a5b1c2" />
+</svg>

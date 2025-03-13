@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Journal -->
+  <path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <!-- Journal Binding -->
+  <path d="M50,30 L50,70" fill="none" stroke="#777777" stroke-width="3"/>
+  <!-- Journal Pages -->
+  <path d="M35,40 L45,40 M35,50 L45,50 M35,60 L45,60" fill="none" stroke="#777777" stroke-width="1"/>
+  <path d="M55,40 L65,40 M55,50 L65,50 M55,60 L65,60" fill="none" stroke="#777777" stroke-width="1"/>
+</svg>

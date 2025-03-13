@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#252525" stroke="#333333" stroke-width="2"/>
+  <!-- Reading Glasses -->
+  <path d="M30,50 C30,45 35,40 40,40 C45,40 50,45 50,50 C50,55 45,60 40,60 C35,60 30,55 30,50 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <path d="M50,50 C50,45 55,40 60,40 C65,40 70,45 70,50 C70,55 65,60 60,60 C55,60 50,55 50,50 Z" fill="none" stroke="#777777" stroke-width="2"/>
+  <path d="M30,50 L25,45 M70,50 L75,45" fill="none" stroke="#777777" stroke-width="1.5"/>
+</svg>
